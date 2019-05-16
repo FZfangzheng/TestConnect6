@@ -14,17 +14,25 @@ import static core.game.Move.SIDE;
 public class AI5 extends AI {
     @Override
     public Move findMove(Move opponentMove) {
+        //获取落子
+        PieceColor myColor = getColor();
         Board b = board();
-        PieceColor[] p = Road.createMap(b);
-        ArrayList<Road> AR =  Road.findRoads(p,777);
-        Random rand = new Random();
-        while (true) {
-            int index1 = rand.nextInt(SIDE * SIDE);
-            int index2 = rand.nextInt(SIDE * SIDE);
-
-            if (index1 != index2 && b.get(index1) == EMPTY && b.get(index2) == EMPTY)
-                return new Move(index1, index2);
+        //必胜搜索
+        int pre_index = Search.mustWin(b,myColor);
+        if(pre_index == -1){
+            //预测棋局
+            Forecast forecastBoard = new Forecast(b,myColor);
+            //获取最佳落子
+            int[] index = forecastBoard.alphabeta();
+            return new Move(index[0], index[1]);
         }
+        else{
+            int x = pre_index/19;
+            int y = pre_index%19;
+            return new Move(x, y);
+        }
+
+
     }
 
 
