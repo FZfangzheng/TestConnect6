@@ -22,7 +22,8 @@ public class Forecast {
     public void generateBoard(int level){
 
     }
-    public int[] alphabeta(){
+    public int[] alphabeta(int depth, int alpha, int beta, int type, Board_Score BS){
+        
         return null;
     }
 }
