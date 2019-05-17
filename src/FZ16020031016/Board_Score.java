@@ -16,9 +16,9 @@ public class Board_Score {
     public Board_Roads[][] getBlackorwhite() {
         return blackorwhite;
     }
-
-    public void setMyChess(PieceColor myChess) {
-        this.myChess = myChess;
+    Board_Score(PieceColor p){
+        this.myChess = p;
+        this.score = 0;
     }
 
     /**

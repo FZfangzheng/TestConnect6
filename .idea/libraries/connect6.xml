@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="connect6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/connect6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

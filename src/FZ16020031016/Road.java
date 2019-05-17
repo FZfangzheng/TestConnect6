@@ -58,13 +58,17 @@ public class Road {
         this.bf = bf;
     }
 
+    static public ArrayList<Road> getRoads(Board board,int pos){
+        PieceColor[] p = Road.createMap(board);
+        return Road.findRoads(p,pos);
+    }
     /**
      * 输出该格局路的情况
      * @param b
      * @param pos
      * @return ArrayList<Road>
      */
-    static public ArrayList<Road> findRoads(PieceColor[] b, int pos){
+    static private ArrayList<Road> findRoads(PieceColor[] b, int pos){
         int count=0;
         int px=0;
         int py=0;
@@ -189,7 +193,7 @@ public class Road {
      * @param board
      * @return PieceColor
      */
-    static PieceColor[] createMap(Board board){
+    static private PieceColor[] createMap(Board board){
         PieceColor[] p = new PieceColor[361];
         for(int i = 0;i<361;i++){
             p[i] = board.get(i);
