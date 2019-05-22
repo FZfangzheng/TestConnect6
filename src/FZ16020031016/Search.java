@@ -10,8 +10,8 @@ public class Search {
      * @param myChess
      * @return
      */
-    static public int mustWin(Board board, PieceColor myChess){
-        return 1;
+    static public Step mustWin(Board board, PieceColor myChess){
+        return new Step();
     }
     static private int DFS(Board board, int pos){
         return 0;

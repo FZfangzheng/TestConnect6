@@ -17,20 +17,13 @@ public class AI5 extends AI {
         //获取落子
         PieceColor myColor = getColor();
         Board b = board();
-        //必胜搜索
-        int pre_index = Search.mustWin(b,myColor);
-        if(pre_index == -1){
-            //预测棋局
-            Forecast forecastBoard = new Forecast(b,myColor);
-            //获取最佳落子
-            int[] index = forecastBoard.alphabeta();
-            return new Move(index[0], index[1]);
-        }
-        else{
-            int x = pre_index/19;
-            int y = pre_index%19;
-            return new Move(x, y);
-        }
+
+        //预测棋局
+        Forecast forecastBoard = new Forecast(b,myColor);
+        //获取最佳落子
+        int[] index = forecastBoard.generateStep(3);
+        return new Move(index[0], index[1]);
+
 
 
     }

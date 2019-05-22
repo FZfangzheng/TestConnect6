@@ -5,6 +5,12 @@ import core.board.PieceColor;
 import java.util.ArrayList;
 
 public class Utiles {
+    /**
+     * 返回棋局评分
+     * @param board 棋盘
+     * @param myChess 执子颜色
+     * @return 返回得分
+     */
     static public int getValue(Board board, PieceColor myChess){
         Board_Score BS = new Board_Score(myChess);
         for(int i=0;i<361;i++){
@@ -18,5 +24,8 @@ public class Utiles {
         }
         BS.calcScore();
         return BS.getScore();
+    }
+    static public int[] stepToInt(Step step){
+        return new int[]{1,1,1,1};
     }
 }
