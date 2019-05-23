@@ -11,9 +11,7 @@ public class Search {
      * @return
      */
     static public Step mustWin(Board board, PieceColor myChess){
-        return new Step();
+        return new Step(new int[]{-1,-1},new int[]{-1,-1});
     }
-    static private int DFS(Board board, int pos){
-        return 0;
-    }
+
 }

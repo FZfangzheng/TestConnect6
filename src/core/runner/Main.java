@@ -10,12 +10,13 @@ public class Main {
     	
     	//oucChampion.addPlayer(new core.player.Dicer());
 
-    	//oucChampion.addPlayer(new g01.player.Dicer());
-		oucChampion.addPlayer(new s16020031016.Move_method3());
-		oucChampion.addPlayer(new s16020031016.Move_method2());
+    	oucChampion.addPlayer(new g01.player.Dicer());
+		oucChampion.addPlayer(new FZ16020031016.AI5());
+		//oucChampion.addPlayer(new s16020031016.Move_method3());
+		//oucChampion.addPlayer(new s16020031016.Move_method2());
     	//oucChampion.addPlayer(new g02.player.Lucker());
     	
-    	oucChampion.arrangeMatches(500);
+    	oucChampion.arrangeMatches(10);
     	
     	oucChampion.run();
     }

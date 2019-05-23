@@ -26,6 +26,7 @@ public class Utiles {
         return BS.getScore();
     }
     static public int[] stepToInt(Step step){
-        return new int[]{1,1,1,1};
+        int[] ans = new int[]{step.getFirstStep(),step.getSecondStep()};
+        return ans;
     }
 }

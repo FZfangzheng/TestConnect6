@@ -9,7 +9,7 @@ public class Board_Score {
     private int score;
     private PieceColor myChess;
     //第一维是自己
-    private Board_Roads[][]blackorwhite = new Board_Roads[7][7];
+    private Board_Roads[][]blackorwhite;
     public int getScore() {
         return score;
     }
@@ -19,6 +19,12 @@ public class Board_Score {
     Board_Score(PieceColor p){
         this.myChess = p;
         this.score = 0;
+        this.blackorwhite = new Board_Roads[7][7];
+        for(int i=0;i<7;i++){
+            for(int j=0;j<7;j++){
+                this.blackorwhite[i][j] = new Board_Roads();
+            }
+        }
     }
 
     /**
