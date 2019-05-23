@@ -22,7 +22,8 @@ public class Forecast {
      * 获取最佳落子
      */
     public int[] generateStep(){
-        Step step = Search.mustWin(this.board,this.myChess);
+        Search search = new Search();
+        Step step = search.mustWin(this.board,this.myChess);
         //找不到必胜
         if (step.getFirstStep() < 0){
             //进行αβ剪枝搜索最合适

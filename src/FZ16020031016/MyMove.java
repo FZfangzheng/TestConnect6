@@ -13,57 +13,118 @@ import static core.board.PieceColor.EMPTY;
 
 public class MyMove {
     private ArrayList<Step> allStep = new ArrayList<>();
-    private void mustStop(PieceColor myChess, PieceColor opponent, Board board){
+    private int[][]map = new int[19][19];
+
+    //合并的一些操作，获取落子点
+    private ArrayList<Integer> operate(Board board,PieceColor opponent){
+        for(int i=0;i<19;i++){
+            for(int j=0;j<19;j++){
+                this.map[i][j]=0;
+            }
+        }
+        for(int i = 0;i<19;i++){
+            for(int j=0;j<19;j++){
+                int index = i*19+j;
+                if(this.map[i][j]==0&&board.get(index)==opponent){
+                    find(i,j,opponent,board,0,0);
+                }
+            }
+        }
+        ArrayList<Integer> ai = new ArrayList<>();
+        for(int i=0;i<19;i++){
+            for(int j=0;j<19;j++){
+                if(this.map[i][j]==2){
+                    int index=i*19+j;
+                    ai.add(index);
+                }
+            }
+        }
+        return ai;
+    }
+    /**
+     *
+     * @param i
+     * @param j
+     * @param opponent
+     * @param board
+     * @param type
+     * @param count
+     */
+
+    private void find(int i, int j, PieceColor opponent, Board board,int type, int count){
+//        if(type==1){
+//            System.out.print(i);
+//            System.out.print(" ");
+//            System.out.print(j);
+//            System.out.print("\n");
+//        }
+
+        if(i>=0&&i<19&&j>=0&&j<19){
+            int index = i*19+j;
+            //没有查过，并且是某子
+            if(this.map[i][j]==0&&board.get(index)==opponent){
+                this.map[i][j]=1;
+                if(type==0){
+                    int t_type = 1;
+                    //八个方向找
+                    for(int m=-1;m<2;m++){
+                        for(int n=-1;n<2;n++){
+                            if(!(m==0&&n==0)){
+                                find(i+m,j+n,opponent,board,t_type,count+1);
+                                t_type++;
+                            }
+                        }
+                    }
+                }
+                else{
+                    switch (type){
+                        case 1:find(i-1,j-1,opponent,board,type,count+1);break;
+                        case 2:find(i-1,j,opponent,board,type,count+1);break;
+                        case 3:find(i-1,j+1,opponent,board,type,count+1);break;
+                        case 4:find(i,j-1,opponent,board,type,count+1);break;
+                        case 5:find(i,j+1,opponent,board,type,count+1);break;
+                        case 6:find(i+1,j-1,opponent,board,type,count+1);break;
+                        case 7:find(i+1,j,opponent,board,type,count+1);break;
+                        case 8:find(i+1,j+1,opponent,board,type,count+1);break;
+                    }
+                }
+
+            }
+            else{
+                if(this.map[i][j]==0&&board.get(index)==EMPTY){
+                    this.map[i][j]=2;
+                }
+            }
+        }
 
     }
     private void stopTwo(PieceColor myChess, PieceColor opponent, Board board){
-
+        ArrayList<Integer> ai = this.operate(board,opponent);
+        for(int i=0;i<ai.size();i++){
+            for(int j=i+1;j<ai.size();j++){
+                allStep.add(new Step(ai.get(i),ai.get(j)));
+            }
+        }
     }
     private void stopOne(PieceColor myChess, PieceColor opponent, Board board){
-
+        ArrayList<Integer> ai = this.operate(board,opponent);
+        ArrayList<Integer> ai2 = this.operate(board,myChess);
+        for(int i=0;i<ai.size();i++){
+            for(int j=0;j<ai2.size();j++){
+                if(ai.get(i)!=ai2.get(j)){
+                    allStep.add(new Step(ai.get(i),ai2.get(j)));
+                }
+            }
+        }
     }
     //测试
     private void goodMyself(PieceColor myChess, PieceColor opponent, Board board){
-        Random rand = new Random();
-        int index1 = 0, index2 = 0, i = 0;
-        for(i=0;i<10;i++){
-            //从左到右从上到下1-19列
-            int x = rand.nextInt(13)+4;
-            int y = rand.nextInt(13)+4;
-            //转换到0-361
-            index1 = (y-1)*19+x-1;
-            if (board.get(index1)==EMPTY){
-                break;
+        ArrayList<Integer> ai2 = this.operate(board,myChess);
+        for(int i=0;i<ai2.size();i++){
+            for(int j=i+1;j<ai2.size();j++){
+                allStep.add(new Step(ai2.get(i),ai2.get(j)));
             }
         }
-        //十次不中，全局随机
-        if(i==10){
-            while(true){
-                index1 = rand.nextInt(SIDE*SIDE);
-                if(board.get(index1)==EMPTY){
-                    break;
-                }
-            }
-        }
-        for(i=0;i<10;i++){
-            //从左到右从上到下1-19列
-            int x = rand.nextInt(13)+4;
-            int y = rand.nextInt(13)+4;
-            index2 = (y-1)*19+x-1;
-            if (board.get(index2)==EMPTY){
-                break;
-            }
-        }
-        if(i==10){
-            while(true){
-                index2 = rand.nextInt(SIDE*SIDE);
-                if(board.get(index2)==EMPTY){
-                    break;
-                }
-            }
-        }
-        Step s = new Step(index1,index2);
-        this.allStep.add(s);
     }
     private void randomStep(Board board){
         Random rand = new Random();
@@ -86,17 +147,13 @@ public class MyMove {
         else{
             opponent=PieceColor.BLACK;
         }
-        //必须堵
-
         //二子堵
-
+        stopTwo(myChess,opponent,board);
         //一子堵
-
+        //stopOne(myChess,opponent,board);
         //自己好
-
+        //this.goodMyself(myChess,opponent,board);
         //随机？
-        this.goodMyself(myChess,opponent,board);
-        this.randomStep(board);
         this.randomStep(board);
     }
 
