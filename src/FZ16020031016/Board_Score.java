@@ -5,7 +5,7 @@ import core.board.PieceColor;
 import java.util.ArrayList;
 
 public class Board_Score {
-    private int[][] w ={{0,1,2,3,4,5,10000000},{0,-1,-2,-3,-4,-5,-10000000}};
+    private int[][] w ={{0,1,10,100,1000,10000,100000},{0,-1,-10,-100,-1000,-10000,-100000}};
     private int score;
     private PieceColor myChess;
     //第一维是自己

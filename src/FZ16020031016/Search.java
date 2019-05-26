@@ -9,78 +9,62 @@ import java.util.ArrayList;
 import static core.board.PieceColor.EMPTY;
 
 public class Search {
-    private int[][]map = new int[19][19];
-    private ArrayList<Step> AS;
-    Search(){
-        for(int i=0;i<19;i++){
-            for(int j=0;j<19;j++){
-                this.map[i][j]=0;
-            }
-        }
-        AS = new ArrayList<>();
-    }
-    private void find(int i, int j, PieceColor opponent, Board board,int type, int count){
-        if(i>=0&&i<19&&j>=0&&j<19){
-            int index = i*19+j;
-            //没有查过，并且是某子
-            if(this.map[i][j]==0&&board.get(index)==opponent){
-                this.map[i][j]=1;
-                if(type==0){
-                    int t_type = 1;
-                    //八个方向找
-                    for(int m=-1;m<2;m++){
-                        for(int n=-1;n<2;n++){
-                            if(!(m==0&&n==0)){
-                                find(i+m,j+n,opponent,board,t_type,count+1);
-                                t_type++;
-                            }
-                        }
-                    }
-                }
-                else{
-                    switch (type){
-                        case 1:find(i-1,j-1,opponent,board,type,count+1);break;
-                        case 2:find(i-1,j,opponent,board,type,count+1);break;
-                        case 3:find(i-1,j+1,opponent,board,type,count+1);break;
-                        case 4:find(i,j-1,opponent,board,type,count+1);break;
-                        case 5:find(i,j+1,opponent,board,type,count+1);break;
-                        case 6:find(i+1,j-1,opponent,board,type,count+1);break;
-                        case 7:find(i+1,j,opponent,board,type,count+1);break;
-                        case 8:find(i+1,j+1,opponent,board,type,count+1);break;
-                    }
-                }
+    private ArrayList<Step> AS =  new ArrayList<>();
 
-            }
-            else{
-                if(this.map[i][j]==0&&board.get(index)==EMPTY){
-                    switch (type){
-                        case 1:if(((i-1)*19+j-1)<361&&((i-1)*19+j-1)>=0&&board.get((i-1)*19+j-1)==EMPTY)this.AS.add(new Step(i*19+j,(i-1)*19+j-1));break;
-                        case 2:if(((i-1)*19+j)<361&&((i-1)*19+j)>=0&&board.get((i-1)*19+j)==EMPTY)this.AS.add(new Step(i*19+j,(i-1)*19+j));break;
-                        case 3:if(((i-1)*19+j+1)<361&&((i-1)*19+j+1)>=0&&board.get((i-1)*19+j+1)==EMPTY)this.AS.add(new Step(i*19+j,(i-1)*19+j+1));break;
-                        case 4:if(((i)*19+j-1)<361&&((i)*19+j-1)>=0&&board.get((i)*19+j-1)==EMPTY)this.AS.add(new Step(i*19+j,(i)*19+j-1));break;
-                        case 5:if(((i)*19+j+1)<361&&((i)*19+j+1)>=0&&board.get((i)*19+j+1)==EMPTY)this.AS.add(new Step(i*19+j,(i)*19+j+1));break;
-                        case 6:if(((i+1)*19+j-1)<361&&((i+1)*19+j-1)>=0&&board.get((i+1)*19+j-1)==EMPTY)this.AS.add(new Step(i*19+j,(i+1)*19+j-1));break;
-                        case 7:if(((i+1)*19+j)<361&&((i+1)*19+j)>=0&&board.get((i+1)*19+j)==EMPTY)this.AS.add(new Step(i*19+j,(i+1)*19+j));break;
-                        case 8:if(((i+1)*19+j+1)<361&&((i+1)*19+j+1)>=0&&board.get((i+1)*19+j+1)==EMPTY)this.AS.add(new Step(i*19+j,(i+1)*19+j+1));break;
-                    }
-                    this.map[i][j]=2;
-                }
-            }
-        }
-
-    }
     /**
      * 必胜格局搜索
      * @param board
      * @param myChess
      * @return
      */
+
+    private int[][] dir = {
+            {0,1},  // 右
+            {1,0},  // 下
+            {1,-1}, // 右上
+            {1,1}   // 右下
+    };
+    private void operator(int i, int j ,Board board,Road road){
+        //沿着路的方向搜六步
+        int d = road.getJ() - 1;//方向坐标
+        ArrayList<int[]> a = new ArrayList<int[]>();
+        for (int k = 0 ; k < 6;k++){
+            int y = i + dir[d][0] * k,x = j + dir[d][1] * k;
+
+            if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
+                int[] arr = {y,x};
+                a.add(arr);
+            }
+        }
+        //必胜策略的话，当只要下一步的时候就能结束，另一个随意找个空的地方下就行
+        if(a.size() == 1){
+            for (int ii = 0; ii < 19 ; ii++){
+                for (int kk = 0 ; kk < 19 ; kk++){
+                    if(board.get(ii*19+kk) == EMPTY){
+                        int[] arr = {ii,kk};
+                        a.add(arr);
+                        kk = 20;ii = 20;//跳出两层循环
+                    }
+                }
+            }
+        }
+        //添加到step,a也不懂为什么会越界
+        if (a.size() != 0)
+            AS.add( new Step(a.get(0),a.get(1)));
+    }
+
+
     public Step mustWin(Board board, PieceColor myChess){
         for(int i = 0;i<19;i++){
             for(int j=0;j<19;j++){
                 int index = i*19+j;
-                if(this.map[i][j]==0&&board.get(index)==myChess){
-                    find(i,j,myChess,board,0,0);
+                ArrayList<Road> roads = Road.getRoads(board,index);
+                for (Road road : roads) {
+                    int my = ChessCount.getMy(road,myChess);
+                    int your = ChessCount.getYour(road,myChess);
+                    if(your == 0 &&( my == 4 || my == 5)){
+                        this.operator(i,j,board,road);
+                    }
                 }
             }
         }
