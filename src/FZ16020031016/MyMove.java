@@ -20,7 +20,7 @@ public class MyMove {
     private int[][] dir = {
             {0,1},  // 右
             {1,0},  // 下
-            {1,-1}, // 右上
+            {-1,1}, // 右上
             {1,1}   // 右下
     };
 //    //合并的一些操作，获取落子点
@@ -157,7 +157,7 @@ public class MyMove {
             int i = pos.getI(),j = pos.getJ();
             for (Road road:roads){
                 if (mustgo.size() > 2)
-                    break;;
+                    break;
                 if(ChessCount.getYour(road,myChess) > 3)
                     continue;
                 int d = road.getJ() - 1;//方向坐标
@@ -252,7 +252,8 @@ public class MyMove {
             opponent=PieceColor.WHITE;
         else
             opponent=PieceColor.BLACK;
-        int[] soreList = {0,1,10,100,1000,10000};
+        //x24+1
+        int[] soreList = {0,1,25,601,14425,346201};
         for (int i = 0 ; i < 19;i++){
             for(int j = 0;j<19;j++){
                 int index = i*19+j;
@@ -270,7 +271,7 @@ public class MyMove {
                         yousore += soreList[your];
                 }
                 //这个点有路含有4个或者5个，必须要堵的时候加入
-                if(board.get(index) == opponent && yousore >= 1000)
+                if(board.get(index) == opponent && yousore >= 14425)
                     stop.add(new PosSore(i,j,yousore));
                 //这个点可以用来给自己给获得优势或者是妨碍对方
                 if (board.get(index) == EMPTY){
