@@ -63,7 +63,7 @@ public class Search {
                     int my = ChessCount.getMy(road,myChess);
                     int your = ChessCount.getYour(road,myChess);
                     if(your == 0 &&( my == 4 || my == 5)){
-                        this.operator(i,j,board,road);
+                        this.operator(road.getFp()/19,road.getFp()%19,board,road);
                     }
                 }
             }
