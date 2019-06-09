@@ -1,11 +1,21 @@
 package FZ16020031016;
 
+import core.board.PieceColor;
+
 import java.util.Comparator;
 
 public class PosSore {
     private int i;
     private int j;
+    private int way;
+    private PieceColor pc;
+    public int getWay() {
+        return way;
+    }
 
+    public PieceColor getPc() {
+        return pc;
+    }
     public int getI() {
         return i;
     }
@@ -19,9 +29,11 @@ public class PosSore {
     }
 
     private int score;
-    PosSore(int i,int j,int score){
+    PosSore(int i,int j,int way,PieceColor pc,int score){
         this.i = i;
         this.j = j;
+        this.way = way;
+        this.pc = pc;
         this.score = score;
     }
 }

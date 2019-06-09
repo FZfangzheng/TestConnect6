@@ -58,7 +58,7 @@ public class Road {
         this.bf = bf;
     }
 
-    static public ArrayList<Road> getRoads(Board board,int pos){
+    static public ArrayList<Road> getRoads(MyBoard board,int pos){
         PieceColor[] p = Road.createMap(board);
         return Road.findRoads2(p,pos);
     }
@@ -98,6 +98,8 @@ public class Road {
                             bf = bf + 1;
                         }
                     }
+                    Road road = new Road(fp,j,wf,bf);
+                    ar.add(road);
                 }
             }
             else if(j==2){
@@ -110,6 +112,8 @@ public class Road {
                             bf = bf + 1;
                         }
                     }
+                    Road road = new Road(fp,j,wf,bf);
+                    ar.add(road);
                 }
             }
             else if(j==3){
@@ -122,6 +126,8 @@ public class Road {
                             bf = bf + 1;
                         }
                     }
+                    Road road = new Road(fp,j,wf,bf);
+                    ar.add(road);
                 }
             }
             else{
@@ -134,13 +140,11 @@ public class Road {
                             bf = bf + 1;
                         }
                     }
+                    Road road = new Road(fp,j,wf,bf);
+                    ar.add(road);
                 }
             }
-            Road road = new Road(fp,j,wf,bf);
-            ar.add(road);
         }
-
-
         return ar;
     }
 
@@ -277,7 +281,7 @@ public class Road {
      * @param board
      * @return PieceColor
      */
-    static private PieceColor[] createMap(Board board){
+    static private PieceColor[] createMap(MyBoard board){
         PieceColor[] p = new PieceColor[361];
         for(int i = 0;i<361;i++){
             p[i] = board.get(i);

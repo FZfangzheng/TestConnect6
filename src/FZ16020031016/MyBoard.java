@@ -4,9 +4,7 @@ import core.board.Board;
 import core.board.PieceColor;
 import core.game.Move;
 
-/**
- * 废弃
- */
+
 public class MyBoard{
     private PieceColor[] my_board = new PieceColor[361];
     public MyBoard(Board board){
@@ -14,12 +12,49 @@ public class MyBoard{
             my_board[i] = board.get(i);
         }
     }
-    public void set(int k, PieceColor v) {
-        assert Move.validSquare(k);
-
-        this.my_board[k] = v;
+    public void set(int i, int j,PieceColor v) {
+        this.my_board[i] = v;
+        this.my_board[j] = v;
     }
-    public void unset(int k){
-        this.my_board[k] = PieceColor.EMPTY;
+    public void unset(int i,int j){
+        this.my_board[i] = PieceColor.EMPTY;
+        this.my_board[j] = PieceColor.EMPTY;
+    }
+    public PieceColor get(int i){
+        return my_board[i];
+    }
+    public String toString(boolean legend) {
+        StringBuffer strBuff = new StringBuffer();
+        strBuff.append("  ");
+
+        int i;
+        for(i = 0; i < 19; ++i) {
+            strBuff.append((char)(65 + i));
+        }
+
+        strBuff.append("\n");
+
+        for(i = 0; i < 361; ++i) {
+            if (i % 19 == 0) {
+                strBuff.append((char)(65 + i / 19) + " ");
+            }
+
+            if (this.my_board[i] == PieceColor.EMPTY) {
+                strBuff.append("-");
+            } else if (this.my_board[i] == PieceColor.BLACK) {
+                strBuff.append("x");
+            } else {
+                strBuff.append("o");
+            }
+
+            if ((i + 1) % 19 == 0) {
+                strBuff.append("\n");
+            }
+        }
+
+        return strBuff.toString();
+    }
+    public void draw() {
+        System.out.print(this.toString(true));
     }
 }
