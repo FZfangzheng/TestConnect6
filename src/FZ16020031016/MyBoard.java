@@ -29,7 +29,7 @@ public class MyBoard{
 
         int i;
         for(i = 0; i < 19; ++i) {
-            strBuff.append((char)(65 + i));
+            strBuff.append((char)(65 + i)).append("  ");
         }
 
         strBuff.append("\n");
@@ -40,11 +40,11 @@ public class MyBoard{
             }
 
             if (this.my_board[i] == PieceColor.EMPTY) {
-                strBuff.append("-");
+                strBuff.append("-").append("  ");
             } else if (this.my_board[i] == PieceColor.BLACK) {
-                strBuff.append("x");
+                strBuff.append("x").append("  ");
             } else {
-                strBuff.append("o");
+                strBuff.append("o").append("  ");
             }
 
             if ((i + 1) % 19 == 0) {

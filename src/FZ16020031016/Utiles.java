@@ -44,7 +44,7 @@ public class Utiles {
      * @param myChess 执子颜色
      * @return 返回得分
      */
-    static public int getValue(MyBoard board, PieceColor myChess){
+    static public long getValue(MyBoard board, PieceColor myChess){
         Board_Score BS = new Board_Score(myChess);
         ArrayList<Integer> AI = getMap(board);
         for(int i:AI){

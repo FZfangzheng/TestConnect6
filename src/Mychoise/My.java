@@ -1,5 +1,6 @@
 package Mychoise;
 
+import FZ16020031016.MyBoard;
 import core.board.Board;
 import core.board.PieceColor;
 import core.game.Move;
@@ -13,6 +14,8 @@ public class My extends AI {
         //获取落子
         PieceColor myColor = getColor();
         Board b = board();
+        MyBoard myboard = new MyBoard(b);
+        myboard.draw();
         Scanner input=new Scanner(System.in);
         char x = input.next().charAt(0);
         char y = input.next().charAt(0);

@@ -48,7 +48,7 @@ public class MyMove {
             for (int k = 0 ; k < 6;k++){
                 int y = i + dir[way][0] * k,x = j + dir[way][1] * k;
                 if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
-                    if(myself_pos.size()>=2){
+                    if(myself_pos.size()>=4){
                         break;
                     }
                     myself_pos.add(y*19+x);
@@ -59,7 +59,7 @@ public class MyMove {
             int way = ps.getWay()-1;
             int i = ps.getI();
             int j = ps.getJ();
-            if(stop_pos.size()>=2){
+            if(stop_pos.size()>=4){
                 break;
             }
             for (int k = 0 ; k < 6;k++){

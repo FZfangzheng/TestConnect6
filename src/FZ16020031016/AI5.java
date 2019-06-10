@@ -18,6 +18,7 @@ public class AI5 extends AI {
         PieceColor myColor = getColor();
         Board b = board();
         MyBoard myboard = new MyBoard(b);
+        myboard.draw();
         //预测棋局，包括了必胜获取和αβ剪枝,3表示的是检索最深层数
         Forecast forecastBoard = new Forecast(myboard,myColor,2);
         //获取最佳落子

@@ -41,10 +41,10 @@ public class Forecast {
         }
     }
 
-    public int alphabeta(int depth, int alpha, int beta, PieceColor myChess, MyBoard board) {
-        int t_value=-10000000;
-        int max_value = -10000000;
-        int min_value = 10000000;
+    public long alphabeta(int depth, long alpha, long beta, PieceColor myChess, MyBoard board) {
+        long t_value=-Long.MAX_VALUE;
+        long max_value = -Long.MAX_VALUE;
+        long min_value = Long.MAX_VALUE;
         int choose = 0;
         PieceColor nowChess;
         if (depth==this.F_depth){

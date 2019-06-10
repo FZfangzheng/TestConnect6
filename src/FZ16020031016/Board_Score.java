@@ -5,12 +5,13 @@ import core.board.PieceColor;
 import java.util.ArrayList;
 
 public class Board_Score {
-    private int[][] w ={{0,1,10,100,1000,10000,100000},{0,-1,-10,-100,-1000,-10000,-100000}};
-    private int score;
+    //x925
+    private long[][] w ={{0,1,925,855625,791453125,732094140625L,677187080078125L},{0,-1,-925,-855625,-791453125,-732094140625L,-677187080078125L}};
+    private long score;
     private PieceColor myChess;
     //第一维是自己
     private Board_Roads[][]blackorwhite;
-    public int getScore() {
+    public long getScore() {
         return score;
     }
     public Board_Roads[][] getBlackorwhite() {
