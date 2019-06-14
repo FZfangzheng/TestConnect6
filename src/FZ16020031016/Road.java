@@ -8,17 +8,17 @@ import java.util.ArrayList;
 
 
 public class Road {
-    private int fp;//èµ·å§‹ç‚¹
-    private int j;//æ–¹å‘
-    private int wf;//ç™½å­æ•°ç›®
-    private int bf;//é»‘å­æ•°ç›®
+    private int fp;//ÆğÊ¼µã
+    private int j;//·½Ïò
+    private int wf;//°××ÓÊıÄ¿
+    private int bf;//ºÚ×ÓÊıÄ¿
 
     /**
      *
-     * @param fp èµ·å§‹ç‚¹
-     * @param j æ–¹å‘
-     * @param wf ç™½å­æ•°
-     * @param bf é»‘å­æ•°
+     * @param fp ÆğÊ¼µã
+     * @param j ·½Ïò
+     * @param wf °××ÓÊı
+     * @param bf ºÚ×ÓÊı
      */
     Road(int fp,int j,int wf,int bf){
         this.fp=fp;
@@ -64,7 +64,7 @@ public class Road {
     }
 
     /**
-     * è¾“å‡ºè¯¥æ ¼å±€è·¯çš„æƒ…å†µ
+     * Êä³ö¸Ã¸ñ¾ÖÂ·µÄÇé¿ö
      * @param b
      * @param pos
      * @return ArrayList<Road>
@@ -151,7 +151,7 @@ public class Road {
 
 
     /**
-     * è¾“å‡ºè¯¥æ ¼å±€è·¯çš„æƒ…å†µ
+     * Êä³ö¸Ã¸ñ¾ÖÂ·µÄÇé¿ö
      * @param b
      * @param pos
      * @return ArrayList<Road>
@@ -277,7 +277,7 @@ public class Road {
         return ar;
     }
     /**
-     * Boardç”Ÿæˆå¯¹åº”çš„PieceColor
+     * BoardÉú³É¶ÔÓ¦µÄPieceColor
      * @param board
      * @return PieceColor
      */

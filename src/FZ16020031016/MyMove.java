@@ -20,10 +20,10 @@ public class MyMove {
     private int[][]map = new int[19][19];
     String str1= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private int[][] dir = {
-            {0,1},  // å³
-            {1,0},  // ä¸‹
-            {-1,1}, // å³ä¸Š
-            {1,1}   // å³ä¸‹
+            {0,1},  // ÓÒ
+            {1,0},  // ÏÂ
+            {-1,1}, // ÓÒÉÏ
+            {1,1}   // ÓÒÏÂ
     };
 
     private void randomStep(MyBoard board){
@@ -40,7 +40,7 @@ public class MyMove {
     }
 
     private void operator(MyBoard board,PieceColor myChess){
-        //æ²¿ç€è·¯çš„æ–¹å‘æœå…­æ­¥
+        //ÑØ×ÅÂ·µÄ·½ÏòËÑÁù²½
         for(PosSore ps:myself){
             int way = ps.getWay()-1;
             int i = ps.getI();
@@ -84,10 +84,10 @@ public class MyMove {
             int mysore = 0,yousore = 0;
             int my = ChessCount.getMy(road,myChess);
             int your = ChessCount.getYour(road,myChess);
-            //ä¸€æ¡è·¯ä¸Šåªæœ‰è‡ªå·±çš„å­ï¼Œæ‰ä¼šåŠ åˆ†
+            //Ò»ÌõÂ·ÉÏÖ»ÓĞ×Ô¼ºµÄ×Ó£¬²Å»á¼Ó·Ö
             if(your == 0)
                 mysore += soreList[my];
-            //ä¸€æ¡è·¯ä¸Šåªæœ‰å¯¹æ–¹çš„å­ï¼Œæ‰ä¼šåŠ åˆ†
+            //Ò»ÌõÂ·ÉÏÖ»ÓĞ¶Ô·½µÄ×Ó£¬²Å»á¼Ó·Ö
             if(my == 0)
                 yousore += soreList[your];
             if(yousore > 0)
@@ -96,10 +96,10 @@ public class MyMove {
                 myself.add(new PosSore(road.getFp()/19,road.getFp()%19,road.getJ(), myChess,mysore));
         }
 
-        //å¯¹å¯èƒ½è¦ä¸‹çš„åœ°æ–¹è¿›è¡Œæ’åºï¼Œåˆ†è¶Šé«˜çš„ï¼Œç»™è‡ªå·±çš„ä¼˜åŠ¿æˆ–è€…ç»™å¯¹æ–¹é€ æˆçš„å¦¨ç¢è¶Šå¤§
+        //¶Ô¿ÉÄÜÒªÏÂµÄµØ·½½øĞĞÅÅĞò£¬·ÖÔ½¸ßµÄ£¬¸ø×Ô¼ºµÄÓÅÊÆ»òÕß¸ø¶Ô·½Ôì³ÉµÄ·Á°­Ô½´ó
         Collections.sort(myself, new SortBySore());
         Collections.sort(stop, new SortBySore());
-        //å¼€å§‹ä¸‹æ£‹
+        //¿ªÊ¼ÏÂÆå
         this.operator(board,myChess);
     }
 
@@ -130,13 +130,13 @@ public class MyMove {
     }
     public void generateStep(PieceColor myChess, MyBoard board){
         this.generateRoad(myChess,board);
-//        äºŒå­å µ
+//        ¶ş×Ó¶Â
         stopTwo();
-//        ä¸€å­å µ
+//        Ò»×Ó¶Â
         stopOne();
-//        è‡ªå·±å¥½
+//        ×Ô¼ººÃ
         goodMyself();
-//        éšæœºï¼Ÿ
+//        Ëæ»ú£¿
 
 
 

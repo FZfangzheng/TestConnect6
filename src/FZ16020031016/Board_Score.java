@@ -9,7 +9,7 @@ public class Board_Score {
     private long[][] w ={{0,1,925,855625,791453125,732094140625L,677187080078125L},{0,-1,-925,-855625,-791453125,-732094140625L,-677187080078125L}};
     private long score;
     private PieceColor myChess;
-    //ç¬¬ä¸€ç»´æ˜¯è‡ªå·±
+    //µÚÒ»Î¬ÊÇ×Ô¼º
     private Board_Roads[][]blackorwhite;
     public long getScore() {
         return score;
@@ -29,8 +29,8 @@ public class Board_Score {
     }
 
     /**
-     * æ·»åŠ è·¯åˆ°è®¡åˆ†è¡¨ä¸­
-     * @param r è·¯
+     * Ìí¼ÓÂ·µ½¼Æ·Ö±íÖĞ
+     * @param r Â·
      */
     public void setRoad(Road r){
         int i,j;
@@ -46,11 +46,11 @@ public class Board_Score {
     }
 
     /**
-     * ç»Ÿè®¡å®Œè·¯æ•°ä½¿ç”¨
+     * Í³¼ÆÍêÂ·ÊıÊ¹ÓÃ
      */
     public void calcScore(){
         this.score=0;
-        //æˆ‘æ–¹æœ‰iä¸ªå­ï¼Œå¯¹æ–¹jä¸ªå­
+        //ÎÒ·½ÓĞi¸ö×Ó£¬¶Ô·½j¸ö×Ó
         for(int i=0;i<7;i++){
             for(int j=0;j<7;j++){
                 ArrayList<Road> ar = blackorwhite[i][j].getAllRoad();

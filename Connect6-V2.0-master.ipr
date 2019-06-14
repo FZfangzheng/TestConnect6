@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/src/FZ16020031016/AI5.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/FZ16020031016/Board_Score.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/FZ16020031016/Forecast.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/FZ16020031016/MyMove.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/FZ16020031016/Road.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/FZ16020031016/Search.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/FZ16020031016/Step.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/core/board/Board.java" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+      <option name="myName" value="Project Default" />
+    </profile>
+    <version value="1.0" />
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Connect6-V2.0-master.iml" filepath="$PROJECT_DIR$/Connect6-V2.0-master.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -19,16 +19,16 @@ public class Forecast {
     }
 
     /**
-     * è·å–æœ€ä½³è½å­
+     * »ñÈ¡×î¼ÑÂä×Ó
      */
     public int[] generateStep(){
         Search search = new Search();
         Step step = search.mustWin(this.board,this.myChess);
-        //æ‰¾ä¸åˆ°å¿…èƒœ
+        //ÕÒ²»µ½±ØÊ¤
         if (step.getFirstStep() < 0){
             Step stop_step = search.mustStop(this.board,this.myChess);
             if(stop_step.getFirstStep()<0) {
-                //è¿›è¡ŒÎ±Î²å‰ªææœç´¢æœ€åˆé€‚
+                //½øĞĞ¦Á¦Â¼ôÖ¦ËÑË÷×îºÏÊÊ
                 alphabeta(0, -10000000, 10000000, myChess, board);
                 return Utiles.stepToInt(this.step);
             }
@@ -52,12 +52,12 @@ public class Forecast {
         }
         else{
             MyMove move = new MyMove();
-            //è‡ªå·±é¢„æµ‹è½å­
+            //×Ô¼ºÔ¤²âÂä×Ó
             if(depth%2==0){
                 move.generateStep(this.myChess,board);
                 nowChess = this.myChess;
             }
-            //å¯¹æ‰‹è½å­
+            //¶ÔÊÖÂä×Ó
             else{
                 if(this.myChess==PieceColor.BLACK) {
                     move.generateStep(PieceColor.WHITE, board);
@@ -69,29 +69,29 @@ public class Forecast {
                     nowChess = PieceColor.BLACK;
                 }
             }
-            //å–å‡ºæ‰€æœ‰è½å­
+            //È¡³öËùÓĞÂä×Ó
             ArrayList<Step> AS = move.getAllStep();
             for (int i = 0;i<AS.size();i++){
                 Step _step = AS.get(i);
                 board.set(_step.getFirstStep(), _step.getSecondStep(),nowChess);
-                //System.out.println("è¾“å‡ºæµ‹è¯•æ ·å­ï¼š\n");
+                //System.out.println("Êä³ö²âÊÔÑù×Ó£º\n");
                 //board.draw();
                 t_value = alphabeta(depth+1,alpha,beta,nowChess,board);
                 board.unset(_step.getFirstStep(), _step.getSecondStep());
-                //ç”¨äºè·å–æœ€ä½³æ–¹æ¡ˆ
+                //ÓÃÓÚ»ñÈ¡×î¼Ñ·½°¸
                 if(depth==0){
                     if (t_value>max_value){
                         choose=i;
                     }
                 }
-                //æ ¹æ®å±‚æ•°è¾“å‡ºæœ€å¤§æˆ–è€…æœ€å°
+                //¸ù¾İ²ãÊıÊä³ö×î´ó»òÕß×îĞ¡
                 if(t_value>max_value){
                     max_value=t_value;
                 }
                 if(t_value<min_value){
                     min_value=t_value;
                 }
-                //å‰ªææ“ä½œ
+                //¼ôÖ¦²Ù×÷
                 if(nowChess!=this.myChess){
                     if(t_value<alpha){
                         break;
@@ -110,7 +110,7 @@ public class Forecast {
                 }
 
             }
-            //å½“å‰å±‚æ•°ï¼Œè¾“å‡ºæœ€ä½³æ–¹æ¡ˆ
+            //µ±Ç°²ãÊı£¬Êä³ö×î¼Ñ·½°¸
             if(depth==0){
                 this.step=AS.get(choose);
             }

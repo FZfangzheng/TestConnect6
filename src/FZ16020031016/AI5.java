@@ -14,16 +14,26 @@ import static core.game.Move.SIDE;
 public class AI5 extends AI {
     @Override
     public Move findMove(Move opponentMove) {
-        //è·å–è½å­
+        if (opponentMove == null) {
+            Move move = firstMove();
+            board.makeMove(move);
+            return move;
+        }
+        else {
+            board.makeMove(opponentMove);
+        }
+        //»ñÈ¡Âä×Ó
         PieceColor myColor = getColor();
-        Board b = board();
-        MyBoard myboard = new MyBoard(b);
-        myboard.draw();
-        //é¢„æµ‹æ£‹å±€ï¼ŒåŒ…æ‹¬äº†å¿…èƒœè·å–å’ŒÎ±Î²å‰ªæ,3è¡¨ç¤ºçš„æ˜¯æ£€ç´¢æœ€æ·±å±‚æ•°
+        MyBoard myboard = new MyBoard(board);
+        //myboard.draw();
+        //board.draw();
+        //Ô¤²âÆå¾Ö£¬°üÀ¨ÁË±ØÊ¤»ñÈ¡ºÍ¦Á¦Â¼ôÖ¦,3±íÊ¾µÄÊÇ¼ìË÷×îÉî²ãÊı
         Forecast forecastBoard = new Forecast(myboard,myColor,2);
-        //è·å–æœ€ä½³è½å­
+        //»ñÈ¡×î¼ÑÂä×Ó
         int[] index = forecastBoard.generateStep();
-        return new Move(index[0], index[1]);
+        Move move = new Move(index[0], index[1]);
+        board.makeMove(move);
+        return move;
 
     }
 
@@ -34,4 +44,6 @@ public class AI5 extends AI {
         // TODO Auto-generated method stub
         return "AI5";
     }
+
+    Board board = new Board();
 }

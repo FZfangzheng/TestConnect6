@@ -22,7 +22,7 @@ public class Step {
     }
 
     /**
-     * stepè½¬æˆä¸¤ä¸ª0-360çš„å€¼
+     * step×ª³ÉÁ½¸ö0-360µÄÖµ
      * @return
      */
     public int getSecondStep() {

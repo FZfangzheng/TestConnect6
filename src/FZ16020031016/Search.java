@@ -2,7 +2,6 @@ package FZ16020031016;
 
 import core.board.Board;
 import core.board.PieceColor;
-import s2017666.AI;
 
 import java.util.ArrayList;
 
@@ -12,21 +11,21 @@ public class Search {
     private ArrayList<Step> AS =  new ArrayList<>();
 
     /**
-     * å¿…èƒœæ ¼å±€æœç´¢
+     * ±ØÊ¤¸ñ¾ÖËÑË÷
      * @param board
      * @param myChess
      * @return
      */
 
     private int[][] dir = {
-            {0,1},  // å³
-            {1,0},  // ä¸‹
-            {-1,1}, // å³ä¸Š
-            {1,1}   // å³ä¸‹
+            {0,1},  // ÓÒ
+            {1,0},  // ÏÂ
+            {-1,1}, // ÓÒÉÏ
+            {1,1}   // ÓÒÏÂ
     };
     private void operator(int i, int j ,MyBoard board,Road road){
-        //æ²¿ç€è·¯çš„æ–¹å‘æœå…­æ­¥
-        int d = road.getJ() - 1;//æ–¹å‘åæ ‡
+        //ÑØ×ÅÂ·µÄ·½ÏòËÑÁù²½
+        int d = road.getJ() - 1;//·½Ïò×ø±ê
         ArrayList<int[]> a = new ArrayList<int[]>();
         for (int k = 0 ; k < 6;k++){
             int y = i + dir[d][0] * k,x = j + dir[d][1] * k;
@@ -36,25 +35,26 @@ public class Search {
                 a.add(arr);
             }
         }
-        //å¿…èƒœç­–ç•¥çš„è¯ï¼Œå½“åªè¦ä¸‹ä¸€æ­¥çš„æ—¶å€™å°±èƒ½ç»“æŸï¼Œå¦ä¸€ä¸ªéšæ„æ‰¾ä¸ªç©ºçš„åœ°æ–¹ä¸‹å°±è¡Œ
+        //±ØÊ¤²ßÂÔµÄ»°£¬µ±Ö»ÒªÏÂÒ»²½µÄÊ±ºò¾ÍÄÜ½áÊø£¬ÁíÒ»¸öËæÒâÕÒ¸ö¿ÕµÄµØ·½ÏÂ¾ÍĞĞ
         if(a.size() == 1){
             for (int ii = 0; ii < 19 ; ii++){
                 for (int kk = 0 ; kk < 19 ; kk++){
                     if(board.get(ii*19+kk) == EMPTY){
                         int[] arr = {ii,kk};
                         a.add(arr);
-                        kk = 20;ii = 20;//è·³å‡ºä¸¤å±‚å¾ªç¯
+                        kk = 20;ii = 20;//Ìø³öÁ½²ãÑ­»·
                     }
                 }
             }
         }
-        //æ·»åŠ åˆ°step,aä¹Ÿä¸æ‡‚ä¸ºä»€ä¹ˆä¼šè¶Šç•Œ
+        //Ìí¼Óµ½step,aÒ²²»¶®ÎªÊ²Ã´»áÔ½½ç
         if (a.size() != 0)
             AS.add( new Step(a.get(0),a.get(1)));
     }
 
 
     public Step mustWin(MyBoard board, PieceColor myChess){
+        //board.draw();
         this.AS.clear();
         for(int i = 0;i<19;i++){
             for(int j=0;j<19;j++){
@@ -78,7 +78,7 @@ public class Search {
 
     }
     public void operator_stop(int i, int j ,MyBoard board,Road road,PieceColor opponent){
-        int d = road.getJ() - 1;//æ–¹å‘åæ ‡
+        int d = road.getJ() - 1;//·½Ïò×ø±ê
         ArrayList<int[]> a = new ArrayList<int[]>();
         int t_i=0,t_j=0;
         for (int k = 0 ; k < 6;k++){
@@ -110,12 +110,12 @@ public class Search {
                     if(board.get(ii*19+kk) == EMPTY){
                         int[] arr = {ii,kk};
                         a.add(arr);
-                        kk = 20;ii = 20;//è·³å‡ºä¸¤å±‚å¾ªç¯
+                        kk = 20;ii = 20;//Ìø³öÁ½²ãÑ­»·
                     }
                 }
             }
         }
-        //æ·»åŠ åˆ°step
+        //Ìí¼Óµ½step
         if (a.size() != 0)
             AS.add( new Step(a.get(0),a.get(1)));
     }
