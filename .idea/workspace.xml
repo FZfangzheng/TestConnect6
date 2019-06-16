@@ -2,40 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc9f91ed-ec82-462f-b1e0-5887bf9abbc1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestConnect6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TestConnect6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/AI5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/AI5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Board_Score.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Board_Score.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Forecast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Forecast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/MyBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/MyBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Road.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Road.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Search.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Utiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/FZ16020031016/Utiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/Mychoise/My.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/Mychoise/My.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/core/runner/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/g01/player/Dicer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/g02/player/Lucker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/s16020031016/Move_method2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/s16020031016/Move_method3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FZ16020031016/AI5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/AI5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FZ16020031016/Board_Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/Board_Score.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FZ16020031016/Forecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/Forecast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FZ16020031016/MyBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/MyBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FZ16020031016/MyMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/MyMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FZ16020031016/Road.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/Road.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FZ16020031016/Utiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/Utiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mychoise/My.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mychoise/My.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Road1602003016/Road.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Road1602003016/Road.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/baseline/player/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/baseline/player/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/runner/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/g01/player/AI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/g01/player/Dicer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/g02/player/AI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/g02/player/Lucker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/s16020031016/Move_method2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/s16020031016/Move_method3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FZ16020031016/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FZ16020031016/Search.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state relative-caret-position="342">
+              <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -58,8 +27,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Forecast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+            <state relative-caret-position="210">
+              <caret line="33" column="82" selection-start-line="33" selection-start-column="82" selection-end-line="33" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Search.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="180" column="43" lean-forward="true" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -67,17 +45,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FZ16020031016/AI5.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="30" column="63" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+            <state relative-caret-position="-92">
+              <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyBoard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="15" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyMove.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+            <state relative-caret-position="230">
+              <caret line="45" column="30" lean-forward="true" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
               <folding>
                 <element signature="e#5340#5341#0" expanded="true" />
               </folding>
@@ -88,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Utiles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
+            <state relative-caret-position="171">
               <caret line="54" selection-start-line="54" selection-end-line="54" />
             </state>
           </provider>
@@ -145,8 +135,9 @@
         <option value="$PROJECT_DIR$/src/baseline/player/AI.java" />
         <option value="$PROJECT_DIR$/src/core/game/Main.java" />
         <option value="$PROJECT_DIR$/src/FZ16020031016/AI5.java" />
-        <option value="$PROJECT_DIR$/src/FZ16020031016/Forecast.java" />
         <option value="$PROJECT_DIR$/src/FZ16020031016/MyMove.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016/Search.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016/Forecast.java" />
       </list>
     </option>
   </component>
@@ -208,7 +199,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560692567703" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560696714344" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="D:/software/programme/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -255,12 +246,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560673925072</updated>
-      <workItem from="1560673926401" duration="17418000" />
+      <workItem from="1560673926401" duration="21509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17418000" />
+    <option name="totallyTimeSpent" value="21509000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -281,7 +272,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.50214595" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32939914" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.48819742" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,13 +346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="121" column="16" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/player/AI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -406,13 +390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Utiles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Step.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
@@ -443,18 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5136#5137#0" expanded="true" />
-            <element signature="e#5189#5190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/baseline/player/AI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -462,34 +427,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Utiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="180" column="43" lean-forward="true" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FZ16020031016/AI5.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="30" column="63" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+        <state relative-caret-position="-92">
+          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Forecast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+        <state relative-caret-position="210">
+          <caret line="33" column="82" selection-start-line="33" selection-start-column="82" selection-end-line="33" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyMove.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+        <state relative-caret-position="230">
+          <caret line="45" column="30" lean-forward="true" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
             <element signature="e#5340#5341#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
         </state>
       </provider>
     </entry>

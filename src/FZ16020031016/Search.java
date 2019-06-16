@@ -148,6 +148,57 @@ public class Search {
             return new Step(new int[]{-1,-1},new int[]{-1,-1});
         }
     }
+    private void attack_search(MyBoard board, PieceColor myChess,Board_Score BS,int now,int target){
+        if(now!=target) {
+            Board_Roads[][] br = BS.getBlackorwhite();
+            ArrayList<Road> ar = new ArrayList<>();
+            if (myChess == BLACK) {
+                ar.addAll(br[2][0].getAllRoad());
+                ar.addAll(br[3][0].getAllRoad());
+            } else {
+                ar.addAll(br[0][2].getAllRoad());
+                ar.addAll(br[0][3].getAllRoad());
+            }
+            ArrayList<Integer> ai = new ArrayList<>();
+            int[] my_board = new int[361];
 
+            for (int i = 0; i < 361; i++) {
+                my_board[i] = 0;
+            }
 
+            for (Road r : ar) {
+                int d = r.getJ() - 1;//·½Ïò×ø±ê
+                int i = r.getFp() / 19;
+                int j = r.getFp() % 19;
+                for (int k = 0; k < 6; k++) {
+                    int y = i + dir[d][0] * k, x = j + dir[d][1] * k;
+                    if (y >= 0 && y < 19 && x >= 0 && x < 19 && board.get(y * 19 + x) == EMPTY) {
+                        my_board[y * 19 + x] = my_board[y * 19 + x] + 1;
+                    }
+
+                }
+            }
+            for (int i = 0; i < 361; i++) {
+                if (my_board[i] > 1) {
+                    ai.add(i);
+                }
+            }
+            if (ai.size() != 0) {
+                for(int i=0;i<ai.size();i++){
+                    int pos = ai.get(i);
+                }
+            }
+        }
+    }
+    public Step attack(MyBoard board, PieceColor myChess,Board_Score BS,int target){
+        this.AS.clear();
+        attack_search(board,myChess,BS,0,target);
+
+        if(AS.size()!=0){
+            return AS.get(0);
+        }
+        else{
+            return new Step(new int[]{-1,-1},new int[]{-1,-1});
+        }
+    }
 }
