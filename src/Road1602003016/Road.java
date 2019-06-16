@@ -182,11 +182,11 @@ public class Road {
     }
     public static void main(String[] args) {
         try {
-            FileReader fr = new FileReader("100ç§æ£‹å±€çŠ¶æ€.txt");
+            FileReader fr = new FileReader("100ÖÖÆå¾Ö×´Ì¬.txt");
             BufferedReader bf = new BufferedReader(fr);
             String str;
             PieceColor[] b = new PieceColor[36100];
-            // æŒ‰è¡Œè¯»å–å­—ç¬¦ä¸²
+            // °´ĞĞ¶ÁÈ¡×Ö·û´®
             int line=0;
             int location = 0;
             String finalStr="";

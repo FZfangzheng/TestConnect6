@@ -48,10 +48,12 @@ public class MyMove {
             for (int k = 0 ; k < 6;k++){
                 int y = i + dir[way][0] * k,x = j + dir[way][1] * k;
                 if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
-                    if(myself_pos.size()>=4){
+                    if(myself_pos.size()>=6){
                         break;
                     }
-                    myself_pos.add(y*19+x);
+                    if(!myself_pos.contains(y*19+x)) {
+                        myself_pos.add(y * 19 + x);
+                    }
                 }
             }
         }
@@ -59,19 +61,28 @@ public class MyMove {
             int way = ps.getWay()-1;
             int i = ps.getI();
             int j = ps.getJ();
-            if(stop_pos.size()>=4){
-                break;
-            }
+
             for (int k = 0 ; k < 6;k++){
                 int y = i + dir[way][0] * k,x = j + dir[way][1] * k;
                 if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
-                    stop_pos.add(y*19+x);
+                    if(stop_pos.size()>=6){
+                        break;
+                    }
+                    if(!stop_pos.contains(y*19+x)) {
+                        stop_pos.add(y * 19 + x);
+                    }
                     break;
                 }
             }
         }
     }
-    public void generateRoad(PieceColor myChess, MyBoard board){
+    public void generateRoad(PieceColor myChess, MyBoard board,Board_Score BS){
+        Board_Roads[][]br = BS.getBlackorwhite();
+        ArrayList<Road> ar_all = new ArrayList<>();
+        for(int i=1;i<6;i++){
+            ar_all.addAll(br[0][i].getAllRoad());
+            ar_all.addAll(br[i][0].getAllRoad());
+        }
         PieceColor opponent;
         if(myChess==PieceColor.BLACK)
             opponent=PieceColor.WHITE;
@@ -79,8 +90,7 @@ public class MyMove {
             opponent=PieceColor.BLACK;
         //x24+1
         int[] soreList = {0,1,25,601,14425,346201};
-        ArrayList<Road> AR = Utiles.getAllRoad(board);
-        for(Road road:AR){
+        for(Road road:ar_all){
             int mysore = 0,yousore = 0;
             int my = ChessCount.getMy(road,myChess);
             int your = ChessCount.getYour(road,myChess);
@@ -107,7 +117,9 @@ public class MyMove {
         int len = stop_pos.size();
         for(int i = 0;i<len;i++){
             for(int j = i+1;j<len;j++){
-                allStep.add(new Step(stop_pos.get(i),stop_pos.get(j)));
+                if(stop_pos.get(i).intValue()!=stop_pos.get(j).intValue()) {
+                    allStep.add(new Step(stop_pos.get(i), stop_pos.get(j)));
+                }
             }
         }
     }
@@ -116,7 +128,9 @@ public class MyMove {
         int len2 = myself_pos.size();
         for(int i = 0;i<len;i++){
             for(int j = 0; j<len2;j++){
-                allStep.add(new Step(stop_pos.get(i),myself_pos.get(j)));
+                if(stop_pos.get(i).intValue()!=myself_pos.get(j).intValue()) {
+                    allStep.add(new Step(stop_pos.get(i), myself_pos.get(j)));
+                }
             }
         }
     }
@@ -124,12 +138,14 @@ public class MyMove {
         int len = myself_pos.size();
         for(int i = 0;i<len;i++){
             for(int j = i+1;j<len;j++){
-                allStep.add(new Step(myself_pos.get(i),myself_pos.get(j)));
+                if(myself_pos.get(i).intValue()!=myself_pos.get(j).intValue()) {
+                    allStep.add(new Step(myself_pos.get(i), myself_pos.get(j)));
+                }
             }
         }
     }
-    public void generateStep(PieceColor myChess, MyBoard board){
-        this.generateRoad(myChess,board);
+    public void generateStep(PieceColor myChess, MyBoard board, Board_Score BS){
+        this.generateRoad(myChess,board,BS);
 //        二子堵
         stopTwo();
 //        一子堵

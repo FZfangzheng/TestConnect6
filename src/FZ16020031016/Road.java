@@ -62,7 +62,10 @@ public class Road {
         PieceColor[] p = Road.createMap(board);
         return Road.findRoads2(p,pos);
     }
-
+    static public ArrayList<Road> getRoads1(MyBoard board,int pos){
+        PieceColor[] p = Road.createMap(board);
+        return Road.findRoads(p,pos);
+    }
     /**
      * 输出该格局路的情况
      * @param b
@@ -156,7 +159,7 @@ public class Road {
      * @param pos
      * @return ArrayList<Road>
      */
-    static private ArrayList<Road> findRoads(PieceColor[] b, int pos){
+    static public ArrayList<Road> findRoads(PieceColor[] b, int pos){
         int count=0;
         int px=0;
         int py=0;

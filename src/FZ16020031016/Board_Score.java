@@ -17,6 +17,11 @@ public class Board_Score {
     public Board_Roads[][] getBlackorwhite() {
         return blackorwhite;
     }
+
+    public void setMyChess(PieceColor myChess) {
+        this.myChess = myChess;
+    }
+
     Board_Score(PieceColor p){
         this.myChess = p;
         this.score = 0;
@@ -33,16 +38,28 @@ public class Board_Score {
      * @param r Â·
      */
     public void setRoad(Road r){
-        int i,j;
-        if(myChess==PieceColor.WHITE){
-            i = r.getWf();
-            j = r.getBf();
+        int i,j,f,fj;
+        i = r.getBf();
+        j = r.getWf();
+        f = r.getFp();
+        fj = r.getJ();
+        ArrayList<Road> ar = blackorwhite[i][j].getAllRoad();
+        if(ar.size()==0){
+            blackorwhite[i][j].setAllRoad(r);
         }
-        else{
-            i = r.getBf();
-            j = r.getWf();
+        else {//È¥ÖØ¸´
+            int flag = 0;
+            for (Road r1 : ar) {
+                if (r1.getBf() == i && r1.getWf() == j && r1.getFp() == f && r1.getJ() == fj) {
+                    flag=1;
+                    break;
+                }
+            }
+            if (flag==0){
+                blackorwhite[i][j].setAllRoad(r);
+            }
         }
-        blackorwhite[i][j].setAllRoad(r);
+
     }
 
     /**
@@ -55,7 +72,12 @@ public class Board_Score {
             for(int j=0;j<7;j++){
                 ArrayList<Road> ar = blackorwhite[i][j].getAllRoad();
                 int len = ar.size();
-                score = score+len*w[0][i]+len*w[1][j];
+                if(myChess==PieceColor.BLACK){
+                    score = score+len*w[0][i]+len*w[1][j];
+                }
+                else{
+                    score = score+len*w[1][i]+len*w[0][j];
+                }
             }
         }
     }

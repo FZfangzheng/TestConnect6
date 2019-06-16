@@ -9,13 +9,19 @@ import java.util.Scanner;
 
 
 public class My extends AI {
+    Board board = new Board();
     @Override
     public Move findMove(Move opponentMove) {
         //获取落子
+        if (opponentMove == null) {
+            Move move = firstMove();
+            board.makeMove(move);
+            return move;
+        }
+        else {
+            board.makeMove(opponentMove);
+        }
         PieceColor myColor = getColor();
-        Board b = board();
-        MyBoard myboard = new MyBoard(b);
-        myboard.draw();
         Scanner input=new Scanner(System.in);
         char x = input.next().charAt(0);
         char y = input.next().charAt(0);
@@ -23,7 +29,9 @@ public class My extends AI {
         char x1 = input.next().charAt(0);
         char y1 = input.next().charAt(0);
 
-        return new Move(x, y,x1,y1);
+        Move move = new Move(x, y,x1,y1);
+        board.makeMove(move);
+        return move;
 
     }
 

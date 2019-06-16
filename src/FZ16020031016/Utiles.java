@@ -44,12 +44,12 @@ public class Utiles {
      * @param myChess 执子颜色
      * @return 返回得分
      */
-    static public long getValue(MyBoard board, PieceColor myChess){
-        Board_Score BS = new Board_Score(myChess);
-        ArrayList<Integer> AI = getMap(board);
-        for(int i:AI){
-            if(board.get(i)==PieceColor.EMPTY){
-                ArrayList<Road> ar = Road.getRoads(board,i);
+    static public void getBS(Board_Score BS, MyBoard board, PieceColor myChess){
+        //Board_Score BS = new Board_Score(myChess);
+        //ArrayList<Integer> AI = getMap(board);
+        for(int i=0;i<361;i++){
+            if(board.get(i)!=PieceColor.EMPTY){
+                ArrayList<Road> ar = Road.getRoads1(board,i);
                 for (Road r:ar
                      ) {
                     BS.setRoad(r);
@@ -59,7 +59,6 @@ public class Utiles {
         //System.out.println("输出测试样子：\n");
         //board.draw();
         BS.calcScore();
-        return BS.getScore();
     }
     static public ArrayList<Road> getAllRoad(MyBoard board){
         ArrayList<Road> AR = new ArrayList<>();

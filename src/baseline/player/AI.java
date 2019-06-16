@@ -47,6 +47,7 @@ public class AI extends core.player.AI {
     		
     		if (index1 != index2 && board.get(index1) == EMPTY && board.get(index2) == EMPTY) {
     			Move move = new Move(index1, index2);
+				//Move move = new Move('J', 'R','C','N');
     			board.makeMove(move);
     			return move;
     		}

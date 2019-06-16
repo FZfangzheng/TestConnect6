@@ -28,7 +28,7 @@ public class AI5 extends AI {
         //myboard.draw();
         //board.draw();
         //预测棋局，包括了必胜获取和αβ剪枝,3表示的是检索最深层数
-        Forecast forecastBoard = new Forecast(myboard,myColor,2);
+        Forecast forecastBoard = new Forecast(myboard,myColor,3);
         //获取最佳落子
         int[] index = forecastBoard.generateStep();
         Move move = new Move(index[0], index[1]);

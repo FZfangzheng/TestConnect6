@@ -9,7 +9,8 @@ public class Main {
     	//oucChampion.addPlayer(new core.player.Dicer());
     	//oucChampion.addPlayer(new baseline.player.AI());
 		oucChampion.addPlayer(new FZ16020031016.AI5());
-		oucChampion.addPlayer(new g05.player.AI());
+		oucChampion.addPlayer(new FZ16020031016.AI5());
+		//oucChampion.addPlayer(new g05.player.AI());
     	//oucChampion.addPlayer(new g02.player.AI());
     	//oucChampion.addPlayer(new core.player.Delegate());
     	//oucChampion.addPlayer(new core.player.Dicer());
