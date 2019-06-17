@@ -1,4 +1,4 @@
-package FZ16020031016;
+package FZ16020031016_2;
 
 import core.board.Board;
 import core.board.PieceColor;
@@ -47,7 +47,7 @@ public class MyBoard{
                 }
 
                 Road new_r = new Road(f, jf, w, b);
-                ArrayList<Road> t_ar = br[r.getBf()][r.getWf()].getAllRoad();
+                ArrayList<Road> t_ar = br[b][w].getAllRoad();
                 if(t_ar.size()==0){
                     BS.setRoad(new_r);
                     nnn++;
@@ -57,7 +57,7 @@ public class MyBoard{
                     //删除旧的，加新的
                     while (iterator.hasNext()) {
                         Road r1 = iterator.next();
-                        if (r.getBf() == r1.getBf() && r.getWf() == r1.getWf() && r.getFp() == r1.getFp() && r.getJ() == r1.getJ()) {
+                        if (b == r1.getBf() && w == r1.getWf() && f == r1.getFp() && jf == r1.getJ()) {
                             iterator.remove();
                             BS.setRoad(new_r);
                             nnn++;

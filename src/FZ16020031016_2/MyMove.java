@@ -1,4 +1,4 @@
-package FZ16020031016;
+package FZ16020031016_2;
 
 import core.board.Board;
 import core.board.PieceColor;
@@ -40,7 +40,6 @@ public class MyMove {
     }
 
     private void operator(MyBoard board,PieceColor myChess){
-        int max = 6;
         //沿着路的方向搜六步
         for(PosSore ps:myself){
             int way = ps.getWay()-1;
@@ -49,7 +48,7 @@ public class MyMove {
             for (int k = 0 ; k < 6;k++){
                 int y = i + dir[way][0] * k,x = j + dir[way][1] * k;
                 if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
-                    if(myself_pos.size()>=max){
+                    if(myself_pos.size()>=6){
                         break;
                     }
                     if(!myself_pos.contains(y*19+x)) {
@@ -62,36 +61,17 @@ public class MyMove {
             int way = ps.getWay()-1;
             int i = ps.getI();
             int j = ps.getJ();
-            PieceColor pre_p = board.get(i*19+j);
-            for (int k = 1 ; k < 6;k++){
+
+            for (int k = 0 ; k < 6;k++){
                 int y = i + dir[way][0] * k,x = j + dir[way][1] * k;
-                if(pre_p!=EMPTY){
-                    if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
-                        if(stop_pos.size()>=max){
-                            break;
-                        }
-                        if(!stop_pos.contains(y*19+x)) {
-                            stop_pos.add(y * 19 + x);
-                        }
+                if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
+                    if(stop_pos.size()>=6){
                         break;
                     }
-                    else{
-                        pre_p=board.get(y*19+x);
+                    if(!stop_pos.contains(y*19+x)) {
+                        stop_pos.add(y * 19 + x);
                     }
-                }
-                else{
-                    if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) != EMPTY){
-                        if(stop_pos.size()>=max){
-                            break;
-                        }
-                        if(!stop_pos.contains((y-dir[way][0])*19+x-dir[way][1])) {
-                            stop_pos.add((y-dir[way][0])*19+x-dir[way][1]);
-                        }
-                        break;
-                    }
-                    else{
-                        pre_p=board.get(y*19+x);
-                    }
+                    break;
                 }
             }
         }

@@ -1,4 +1,4 @@
-package FZ16020031016;
+package FZ16020031016_2;
 
 import core.board.Board;
 import core.board.PieceColor;
@@ -52,40 +52,7 @@ public class Search {
             AS.add( new Step(a.get(0),a.get(1)));
     }
 
-    public void mustWin_operation(MyBoard board,ArrayList<Integer> ai,PieceColor myChess,Board_Score BS){
-        ArrayList<Road> t_ar = new ArrayList<>();
-        for(int i = 0;i<ai.size();i++){
-            for(int j=i+1;j<ai.size();j++){
-                board.set(ai.get(i),ai.get(j),myChess,BS);
-                Board_Roads[][] br = BS.getBlackorwhite();
-                if(myChess==BLACK){
-                    t_ar = br[4][0].getAllRoad();
-                }
-                else{
-                    t_ar = br[0][4].getAllRoad();
-                }
-                if(t_ar.size()>0) {
-                    int tt = 0;
-                    int tj = t_ar.get(0).getJ();
-                    for (int mm = 0; mm < t_ar.size(); mm++) {
-                        if (tj != t_ar.get(mm).getJ()) {
-                            tt++;
-                        }
-                    }
-                    if (tt != 0) {
-                        AS.add(new Step(ai.get(i), ai.get(j)));
-                        board.unset(ai.get(i), ai.get(j), BS);
-                        return;
-                    } else {
-                        board.unset(ai.get(i), ai.get(j), BS);
-                    }
-                }
-                else {
-                    board.unset(ai.get(i), ai.get(j), BS);
-                }
-            }
-        }
-    }
+
     public Step mustWin(MyBoard board, PieceColor myChess, Board_Score BS){
         //board.draw();
         this.AS.clear();
@@ -94,23 +61,18 @@ public class Search {
         if (myChess == BLACK) {
             ar.addAll(br[4][0].getAllRoad());
             ar.addAll(br[5][0].getAllRoad());
-
         } else {
             ar.addAll(br[0][4].getAllRoad());
             ar.addAll(br[0][5].getAllRoad());
-
         }
         for(Road road:ar){
             this.operator(road.getFp()/19,road.getFp()%19,board,road);
         }
-
         if(AS.size()!=0){
             return AS.get(0);
         }
         else{
-
-            return new Step(new int[]{-1, -1}, new int[]{-1, -1});
-
+            return new Step(new int[]{-1,-1},new int[]{-1,-1});
         }
 
     }
@@ -191,7 +153,7 @@ public class Search {
                     }
                 }
             }
-            this.mustWin_operation(board,ai1,opponent,BS);
+            this.operator_stop(ar1,ai1,board,myChess);
             if(AS.size()!=0){
                 return AS.get(0);
             }
@@ -199,45 +161,6 @@ public class Search {
                 return new Step(new int[]{-1, -1}, new int[]{-1, -1});
             }
         }
-    }
-    public Step attack_new(MyBoard board, PieceColor myChess, Board_Score BS){
-        //board.draw();
-        this.AS.clear();
-        Board_Roads[][] br = BS.getBlackorwhite();
-
-        ArrayList<Road> ar1 = new ArrayList<>();
-        if (myChess == BLACK) {
-
-            ar1.addAll(br[3][0].getAllRoad());
-            ar1.addAll(br[2][0].getAllRoad());
-        } else {
-
-            ar1.addAll(br[0][3].getAllRoad());
-            ar1.addAll(br[0][2].getAllRoad());
-        }
-
-        ArrayList<Integer> ai1 = new ArrayList<>();
-        for(Road road :ar1){
-            int d = road.getJ() - 1;//·½Ïò×ø±ê
-            int i = road.getFp()/19;
-            int j = road.getFp()%19;
-            for (int k = 0 ; k < 6;k++){
-                int y = i + dir[d][0] * k,x = j + dir[d][1] * k;
-                if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
-                    if(!ai1.contains(y*19+x))
-                        ai1.add(y*19+x);
-                }
-            }
-        }
-
-        mustWin_operation(board,ai1,myChess,BS);
-        if(AS.size()!=0){
-            return AS.get(0);
-        }
-        else {
-            return new Step(new int[]{-1, -1}, new int[]{-1, -1});
-        }
-
     }
     private void attack_search(MyBoard board, PieceColor myChess,Board_Score BS,int now,int target){
         if(now!=target) {
