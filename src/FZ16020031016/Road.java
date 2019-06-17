@@ -8,10 +8,22 @@ import java.util.ArrayList;
 
 
 public class Road {
-    private int fp;//起始点
-    private int j;//方向
-    private int wf;//白子数目
-    private int bf;//黑子数目
+    public int fp;//起始点
+    public int j;//方向
+    public int wf;//白子数目
+    public int bf;//黑子数目
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Road){
+            if (((Road)obj).fp==(this.fp)&&((Road)obj).j==(this.j)&&((Road)obj).wf==(this.wf)&&((Road)obj).bf==(this.bf)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return false;
+    }
 
     /**
      *

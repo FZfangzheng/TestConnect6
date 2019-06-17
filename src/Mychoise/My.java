@@ -22,6 +22,8 @@ public class My extends AI {
             board.makeMove(opponentMove);
         }
         PieceColor myColor = getColor();
+        MyBoard myBoard = new MyBoard(board);
+        myBoard.draw();
         Scanner input=new Scanner(System.in);
         char x = input.next().charAt(0);
         char y = input.next().charAt(0);
@@ -40,6 +42,6 @@ public class My extends AI {
     @Override
     public String name() {
         // TODO Auto-generated method stub
-        return "AI5";
+        return "777";
     }
 }

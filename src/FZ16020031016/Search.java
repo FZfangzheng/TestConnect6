@@ -53,21 +53,20 @@ public class Search {
     }
 
 
-    public Step mustWin(MyBoard board, PieceColor myChess){
+    public Step mustWin(MyBoard board, PieceColor myChess, Board_Score BS){
         //board.draw();
         this.AS.clear();
-        for(int i = 0;i<19;i++){
-            for(int j=0;j<19;j++){
-                int index = i*19+j;
-                ArrayList<Road> roads = Road.getRoads(board,index);
-                for (Road road : roads) {
-                    int my = ChessCount.getMy(road,myChess);
-                    int your = ChessCount.getYour(road,myChess);
-                    if(your == 0 &&( my == 4 || my == 5)){
-                        this.operator(road.getFp()/19,road.getFp()%19,board,road);
-                    }
-                }
-            }
+        Board_Roads[][] br = BS.getBlackorwhite();
+        ArrayList<Road> ar = new ArrayList<>();
+        if (myChess == BLACK) {
+            ar.addAll(br[4][0].getAllRoad());
+            ar.addAll(br[5][0].getAllRoad());
+        } else {
+            ar.addAll(br[0][4].getAllRoad());
+            ar.addAll(br[0][5].getAllRoad());
+        }
+        for(Road road:ar){
+            this.operator(road.getFp()/19,road.getFp()%19,board,road);
         }
         if(AS.size()!=0){
             return AS.get(0);
@@ -77,49 +76,28 @@ public class Search {
         }
 
     }
-    public void operator_stop(int i, int j ,MyBoard board,Road road,PieceColor opponent){
-        int d = road.getJ() - 1;//方向坐标
-        ArrayList<int[]> a = new ArrayList<int[]>();
-        int t_i=0,t_j=0;
-        for (int k = 0 ; k < 6;k++){
-            int y = i + dir[d][0] * k,x = j + dir[d][1] * k;
-            if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == opponent){
-                t_i = y;
-                t_j = x;
-                break;
-            }
-        }
-        int flag1 = 0,flag2 = 0;
-        for (int k = 1 ; k < 6;k++){
-            int y = t_i + dir[d][0] * k,x = t_j + dir[d][1] * k;
-            int y1 = t_i + dir[d][0] * (-1*k),x1 = t_j + dir[d][1] * (-1*k);
-            if(flag1==0&&y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
-                int[] arr = {y,x};
-                a.add(arr);
-                flag1=1;
-            }
-            if(flag2==0&&y1>=0&&y1<19&&x1>=0&&x1<19 && board.get(y1*19+x1) == EMPTY){
-                int[] arr = {y1,x1};
-                a.add(arr);
-                flag2=1;
-            }
-        }
-        if(a.size() == 1){
-            for (int ii = 0; ii < 19 ; ii++){
-                for (int kk = 0 ; kk < 19 ; kk++){
-                    if(board.get(ii*19+kk) == EMPTY){
-                        int[] arr = {ii,kk};
-                        a.add(arr);
-                        kk = 20;ii = 20;//跳出两层循环
+    public void operator_stop(ArrayList<Road> ar,ArrayList<Integer>ai ,MyBoard board,PieceColor mychess){
+        ArrayList<Road> t_ar = new ArrayList<>();
+        for(int i = 0;i<ai.size();i++){
+            for(int j=i+1;j<ai.size();j++){
+                t_ar.clear();
+                t_ar.addAll(Road.findRoads(board.get_my_board(),ai.get(i)));
+                t_ar.addAll(Road.findRoads(board.get_my_board(),ai.get(j)));
+                int flag=1;
+                for(Road r :ar){
+                    if(!t_ar.contains(r)){
+                        flag=0;
+                        break;
                     }
+                }
+                if(flag==1){
+                    AS.add( new Step(ai.get(i),ai.get(j)));
+                    return;
                 }
             }
         }
-        //添加到step
-        if (a.size() != 0)
-            AS.add( new Step(a.get(0),a.get(1)));
     }
-    public Step mustStop(MyBoard board, PieceColor myChess){
+    public Step mustStop(MyBoard board, PieceColor myChess,Board_Score BS){
         this.AS.clear();
         PieceColor opponent;
         if(myChess==WHITE){
@@ -128,19 +106,29 @@ public class Search {
         else{
             opponent=WHITE;
         }
-        for(int i = 0;i<19;i++){
-            for(int j=0;j<19;j++){
-                int index = i*19+j;
-                ArrayList<Road> roads = Road.getRoads(board,index);
-                for (Road road : roads) {
-                    int my = ChessCount.getMy(road,myChess);
-                    int your = ChessCount.getYour(road,myChess);
-                    if(my == 0 &&( your == 4 || your == 5)){
-                        this.operator_stop(road.getFp()/19,road.getFp()%19,board,road,opponent);
-                    }
+        Board_Roads[][] br = BS.getBlackorwhite();
+        ArrayList<Road> ar = new ArrayList<>();
+        if (myChess == BLACK) {
+            ar.addAll(br[0][4].getAllRoad());
+            ar.addAll(br[0][5].getAllRoad());
+        } else {
+            ar.addAll(br[4][0].getAllRoad());
+            ar.addAll(br[5][0].getAllRoad());
+        }
+        ArrayList<Integer> ai = new ArrayList<>();
+        for(Road road :ar){
+            int d = road.getJ() - 1;//方向坐标
+            int i = road.getFp()/19;
+            int j = road.getFp()%19;
+            for (int k = 0 ; k < 6;k++){
+                int y = i + dir[d][0] * k,x = j + dir[d][1] * k;
+                if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
+                    if(!ai.contains(y*19+x))
+                        ai.add(y*19+x);
                 }
             }
         }
+        this.operator_stop(ar,ai,board,myChess);
         if(AS.size()!=0){
             return AS.get(0);
         }

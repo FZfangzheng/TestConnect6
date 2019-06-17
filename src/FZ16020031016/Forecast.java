@@ -26,17 +26,17 @@ public class Forecast {
      */
     public int[] generateStep(){
         Search search = new Search();
-        Step step = search.mustWin(this.board,this.myChess);
+        Step step = search.mustWin(this.board,this.myChess,this.BS);
         //’“≤ªµΩ±ÿ §
         if (step.getFirstStep() < 0){
-            Step stop_step = search.mustStop(this.board,this.myChess);
+            Step stop_step = search.mustStop(this.board,this.myChess,this.BS);
             if(stop_step.getFirstStep()<0) {
-                Step attack_step = search.attack(this.board,this.myChess,this.BS,2);
+                //Step attack_step = search.attack(this.board,this.myChess,this.BS,2);
                 //π•ª˜ ß∞‹
-                if(attack_step.getFirstStep()<0) {
+                //if(attack_step.getFirstStep()<0) {
                     //Ω¯––¶¡¶¬ºÙ÷¶À—À˜◊Ó∫œ  
                     alphabeta(0, -Long.MAX_VALUE, Long.MAX_VALUE, myChess, board);
-                }
+                //}
                 return Utiles.stepToInt(this.step);
             }
             else{

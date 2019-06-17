@@ -15,6 +15,9 @@ public class MyBoard{
             my_board[i] = board.get(i);
         }
     }
+    public PieceColor[] get_my_board(){
+        return my_board;
+    }
     public void set(int i, int j,PieceColor v,Board_Score BS) {
         if(i==j){
             System.out.println("cuowu ");

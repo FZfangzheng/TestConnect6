@@ -1,5 +1,7 @@
 package core.game;
 
+import Mychoise.My;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,8 +11,8 @@ public class Main {
     	//oucChampion.addPlayer(new core.player.Dicer());
     	//oucChampion.addPlayer(new baseline.player.AI());
 		oucChampion.addPlayer(new FZ16020031016.AI5());
-		oucChampion.addPlayer(new FZ16020031016.AI5());
-		//oucChampion.addPlayer(new g05.player.AI());
+		//oucChampion.addPlayer(new FZ16020031016.AI5());
+		oucChampion.addPlayer(new My());
     	//oucChampion.addPlayer(new g02.player.AI());
     	//oucChampion.addPlayer(new core.player.Delegate());
     	//oucChampion.addPlayer(new core.player.Dicer());
