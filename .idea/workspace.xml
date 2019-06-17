@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc9f91ed-ec82-462f-b1e0-5887bf9abbc1" name="Default Changelist" comment="" />
+    <list default="true" id="fc9f91ed-ec82-462f-b1e0-5887bf9abbc1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/core/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/core/game/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Board4AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Board4AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Move4AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Move4AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestConnect6/g05/player/Search.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/g05/player/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/g05/player/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/g05/player/Board4AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/g05/player/Board4AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/g05/player/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/g05/player/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/g05/player/Move4AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/g05/player/Move4AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/g05/player/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/g05/player/Search.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,101 +25,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/core/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="174">
+              <caret line="12" column="51" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mychoise/My.java">
+        <entry file="file://$PROJECT_DIR$/src/g05/player/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="-1267">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Forecast.java">
+        <entry file="file://$PROJECT_DIR$/src/g05/player/FindRoad.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="-874">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/AI5.java">
+        <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/AI5.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Search.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="80" selection-start-line="80" selection-end-line="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyBoard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#422#423#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyMove.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-667">
-              <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-              <folding>
-                <element signature="e#5310#5311#0" expanded="true" />
-                <element signature="e#5340#5341#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Utiles.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Road.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/baseline/player/Road.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-958">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="805">
+              <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -132,9 +83,21 @@
         <option value="$PROJECT_DIR$/src/FZ16020031016/MyBoard.java" />
         <option value="$PROJECT_DIR$/src/FZ16020031016/Road.java" />
         <option value="$PROJECT_DIR$/src/FZ16020031016/Forecast.java" />
-        <option value="$PROJECT_DIR$/src/core/game/Main.java" />
         <option value="$PROJECT_DIR$/src/Mychoise/My.java" />
         <option value="$PROJECT_DIR$/src/FZ16020031016/Search.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/Board_Roads.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/Board_Score.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/ChessCount.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/Forecast.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/MyBoard.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/MyMove.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/PosSore.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/Road.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/Search.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/Step.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/Utiles.java" />
+        <option value="$PROJECT_DIR$/src/FZ16020031016_2/AI5.java" />
+        <option value="$PROJECT_DIR$/src/core/game/Main.java" />
       </list>
     </option>
   </component>
@@ -148,7 +111,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,19 +153,25 @@
               <item name="TestConnect6" type="b2602c69:ProjectViewProjectNode" />
               <item name="TestConnect6" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="FZ16020031016_2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TestConnect6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TestConnect6" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Mychoise" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560772583048" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560781124819" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="D:/software/programme/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -252,17 +221,18 @@
       <updated>1560673925072</updated>
       <workItem from="1560673926401" duration="21509000" />
       <workItem from="1560729398687" duration="10784000" />
+      <workItem from="1560772439138" duration="759000" />
+      <workItem from="1560780974897" duration="224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32293000" />
+    <option name="totallyTimeSpent" value="33052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -271,7 +241,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5139485" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.68240345" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27360514" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -413,17 +383,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Utiles.java">
+    <entry file="file://$PROJECT_DIR$/src/Mychoise/My.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+        <state relative-caret-position="460">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/baseline/player/Road.java">
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Forecast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-958">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="644">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/AI5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Utiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -434,61 +437,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mychoise/My.java">
+    <entry file="file://$PROJECT_DIR$/src/baseline/player/Road.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/AI5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#422#423#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/MyMove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-667">
-          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-          <folding>
-            <element signature="e#5310#5311#0" expanded="true" />
-            <element signature="e#5340#5341#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Forecast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="92">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FZ16020031016/Search.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="69">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/Board_Roads.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/Board_Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/ChessCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/Forecast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/MyBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/MyMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/PosSore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/Road.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/Step.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/Utiles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FZ16020031016_2/AI5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="58" lean-forward="true" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
         </state>
       </provider>
     </entry>

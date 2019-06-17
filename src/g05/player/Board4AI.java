@@ -2,9 +2,10 @@ package g05.player;
 
 import java.util.ArrayList;
 
+import core.board.Board;
 import core.board.PieceColor;
 
-public class Board4AI {
+public class Board4AI extends Board{
 	final int ROW = 19;
 	final int COL = 19;
 	final int INF = 5000000;
@@ -17,7 +18,6 @@ public class Board4AI {
 	public ArrayList<Point> pointVector = new ArrayList<Point>();
 	
 	public Table [][] tables = new Table[7][7];
-	public PieceColor [][] board = new PieceColor[ROW][COL];
 	public Road [][][] segment = new Road[ROW][COL][4];
 	
 	public Board4AI()
@@ -27,6 +27,22 @@ public class Board4AI {
 			for(int j = 0; j < 7; j++)
 				tables[i][j] = new Table();
 		}
+		
+		for(int i = 0; i < ROW; i++)
+		{
+			for(int j = 0; j < COL; j++)
+			{
+				for(int k = 0; k < 4; k++)
+					segment[i][j][k] = new Road();
+			}
+		}
+		
+		for(int i = 0; i < ROW; i++)
+		{
+			for(int j = 0; j < COL; j++)
+				set(i * COL + j , PieceColor.EMPTY);
+		}
+		
 		for(int i = 0; i < ROW; i++)
 		{
 			for(int j = 0; j < COL; j++)
@@ -42,7 +58,7 @@ public class Board4AI {
 					}
 				}
 				cover[i][j] = 0;
-				board[i][j] = PieceColor.EMPTY;
+				set(i * COL + j, PieceColor.EMPTY);
 			}
 		}
 	}
@@ -71,7 +87,7 @@ public class Board4AI {
 					}
 				}
 				cover[i][j] = 0;
-				board[i][j] = PieceColor.EMPTY;
+				set(i * COL + j, PieceColor.EMPTY);
 			}
 		}
 	}
@@ -102,13 +118,14 @@ public class Board4AI {
 	
 	public PieceColor getCell(int row, int col)
 	{
-		return board[row][col];
+		return get(row * 19 + col);
 	}
+	
 	
 	public void makeMove(int row, int col, PieceColor pieceColor)
 	{
 		int xt, yt;
-		board[row][col] = pieceColor;
+		set(row * COL + col, pieceColor);
 		cover[row][col]++;
 		
 		int type = getType(pieceColor);
@@ -128,8 +145,11 @@ public class Board4AI {
 			if(segment[xt][yt][i].active)
 			{
 				Road road = segment[xt][yt][i];
+				if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 				tables[road.num[0]][road.num[1]].Remove(road);
+				// segment[xt][yt][i].num[type]++;
 				road.num[type]++;
+				if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 				tables[road.num[0]][road.num[1]].Add(road);
 			}
 			for(int j = 0; j < 5; j++)
@@ -141,8 +161,11 @@ public class Board4AI {
 					if(segment[xt][yt][i].active)
 					{
 						Road road = segment[xt][yt][i];
+						if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 						tables[road.num[0]][road.num[1]].Remove(road);
 						road.num[type]++;
+						//segment[xt][yt][i].num[type]++;
+						if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 						tables[road.num[0]][road.num[1]].Add(road);
 					}
 				}
@@ -154,7 +177,7 @@ public class Board4AI {
 	public void unMakeMove(int row, int col, PieceColor pieceColor)
 	{
 		int xt, yt;
-		board[row][col] = PieceColor.EMPTY;
+		set(row * COL + col, PieceColor.EMPTY);
 		cover[row][col]--;
 		int type = getType(pieceColor);
 		
@@ -172,8 +195,11 @@ public class Board4AI {
 			if(segment[xt][yt][i].active)
 			{
 				Road road = segment[xt][yt][i];
+				if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 				tables[road.num[0]][road.num[1]].Remove(road);
 				road.num[type]--;
+				//segment[xt][yt][i].num[type]--;
+				if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 				tables[road.num[0]][road.num[1]].Add(road);
 			}
 			for(int j = 0; j < 5; j++)
@@ -182,10 +208,18 @@ public class Board4AI {
 				yt -= Config.dir[i][1];
 				if(Utils.isLegal(xt, yt))
 				{
-					Road road = segment[xt][yt][i];
-					tables[road.num[0]][road.num[1]].Remove(road);
-					road.num[type]--;
-					tables[road.num[0]][road.num[1]].Add(road);
+					if(segment[xt][yt][i].active){
+						Road road = segment[xt][yt][i];
+						if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
+						tables[road.num[0]][road.num[1]].Remove(road);
+						road.num[type]--;
+						//segment[xt][yt][i].num[type]--;
+						if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
+							tables[road.num[0]][road.num[1]].Add(road);
+						else {
+							System.out.println(road.num[0]+" "+road.num[1]);
+						}
+					}
 				}
 				else break;
 			}
@@ -195,7 +229,7 @@ public class Board4AI {
 	public void virtualMakeMove(int row, int col, PieceColor pieceColor)
 	{
 		int xt, yt;
-		board[row][col] = pieceColor;
+		set(row * COL + col, pieceColor);
 		int type = getType(pieceColor);
 		
 		for (int i = 0; i < 4; i++){
@@ -203,8 +237,11 @@ public class Board4AI {
 			yt = col;
 			if (segment[xt][yt][i].active){
 				Road road = segment[xt][yt][i];
+				if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 				tables[road.num[0]][road.num[1]].Remove(road);
 				road.num[type]++;
+				//segment[xt][yt][i].num[type]++;
+				if(road.num[0]>=0&&road.num[0]<7&&road.num[1]>=0&&road.num[1]<7)
 				tables[road.num[0]][road.num[1]].Add(road);
 			}
 			for (int j = 0; j < 5; j++){
@@ -213,8 +250,11 @@ public class Board4AI {
 				if (Utils.isLegal(xt, yt)){
 					if (segment[xt][yt][i].active){
 						Road seg = segment[xt][yt][i];
+						if(seg.num[0]>=0&&seg.num[0]<7&&seg.num[1]>=0&&seg.num[1]<7)
 						tables[seg.num[0]][seg.num[1]].Remove(seg);
 						seg.num[type]++;
+						//segment[xt][yt][i].num[type]++;
+						if(seg.num[0]>=0&&seg.num[0]<7&&seg.num[1]>=0&&seg.num[1]<7)
 						tables[seg.num[0]][seg.num[1]].Add(seg);
 					}
 				}
@@ -226,7 +266,7 @@ public class Board4AI {
 	public void unVirtualMakeMove(int row, int col, PieceColor pieceColor)
 	{
 		int xt, yt;
-		board[row][col] = PieceColor.EMPTY;
+		set(row * COL + col, PieceColor.EMPTY);
 		int type = getType(pieceColor);
 		
 		for (int i = 0; i < 4; i++){
@@ -234,8 +274,11 @@ public class Board4AI {
 			yt = col;
 			if (segment[xt][yt][i].active){
 				Road seg = segment[xt][yt][i];
+				if(seg.num[0]>=0&&seg.num[0]<7&&seg.num[1]>=0&&seg.num[1]<7)
 				tables[seg.num[0]][seg.num[1]].Remove(seg);
 				seg.num[type]--;
+				//segment[xt][yt][i].num[type]--;
+				if(seg.num[0]>=0&&seg.num[0]<7&&seg.num[1]>=0&&seg.num[1]<7)
 				tables[seg.num[0]][seg.num[1]].Add(seg);
 			}
 			for (int j = 0; j < 5; j++){
@@ -244,8 +287,11 @@ public class Board4AI {
 				if (Utils.isLegal(xt, yt)){
 					if (segment[xt][yt][i].active){
 						Road seg = segment[xt][yt][i];
+						if(seg.num[0]>=0&&seg.num[0]<7&&seg.num[1]>=0&&seg.num[1]<7)
 						tables[seg.num[0]][seg.num[1]].Remove(seg);
 						seg.num[type]--;
+						//segment[xt][yt][i].num[type]--;
+						if(seg.num[0]>=0&&seg.num[0]<7&&seg.num[1]>=0&&seg.num[1]<7)
 						tables[seg.num[0]][seg.num[1]].Add(seg);
 					}
 				}
@@ -288,7 +334,7 @@ public class Board4AI {
 		}
 		return 2;
 	}
-	
+	//计算所有的迫着数量
 	int countAllThreats(PieceColor type) {
 		for(int i = 0; i < ROW; i++)
 		{
@@ -369,7 +415,7 @@ public class Board4AI {
 		for (int i = 0; i <ROW; i++) {
 			for (int j = 0; j <COL; j++) {
 				
-				if (cover[i][j] == 1 && board[i][j] == PieceColor.EMPTY) 
+				if (cover[i][j] == 1 && get(i * COL + j) == PieceColor.EMPTY) 
 				{
 					Point point = new Point(i, j);
 					virtualMakeMove(i, j, type);

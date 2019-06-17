@@ -76,7 +76,7 @@ public class Move4AI {
 			int y = road.col + i * Config.dir[road.dir][1];
 			if (chessBoard.getCell(x, y) != PieceColor.EMPTY)
 				continue;
-			if (vis[x][y] == false) {
+			if (!vis[x][y]) {
 				Point p = new Point(x, y);
 				pointList.add(p);
 				vis[x][y] = true;
@@ -309,8 +309,7 @@ public class Move4AI {
 		for (int i = 0; i < len; i++){ 
 			sum += pointList.get(i).value;
 		}
-		if(len != 0)
-			sum /= len;
+		sum /= len;
 
 		for (int i = 0; i < len; i++){
 			if (pointList.get(i).value < sum){

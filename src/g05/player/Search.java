@@ -63,7 +63,7 @@ public class Search {
 		move.createMove(chessBoard, type);
 		int num = move.moveList.size();
 		
-		if(num > MAXNODE + grad * 6)
+		if(num >= MAXNODE + grad * 6)
 			num = MAXNODE + grad * 6;
 
 		if (depth == DEPTH - grad) {
@@ -118,17 +118,21 @@ public class Search {
 		return alpha;
 	}
 	
-	boolean TSS(PieceColor type, Board4AI chessBoard, int depth) 
+	boolean TSS(PieceColor type, Board4AI chessBoard, int depth)
 	{
 		//如果我方连六，return true；
 		int temp = (computerSide == PieceColor.BLACK ? chessBoard.tables[6][0].size : chessBoard.tables[0][6].size);
 
 		if (temp > 0) {
-			bestMove = moveVector.get(0);
-			return true;
+			if(moveVector.size()>0){
+				bestMove = moveVector.get(0);
+				return true;
+			}
+			else
+				return false;
 		}
 		//如果对方存在威胁，但是我方没有威胁，return false；
-		
+
 		int typenum = chessBoard.getType(type) ^ 1;
 		PieceColor piece;
 		if(typenum == 0)
@@ -137,7 +141,7 @@ public class Search {
 			piece = PieceColor.WHITE;
 		else
 			piece = PieceColor.EMPTY;
-		
+
 		if (type == computerSide && chessBoard.countAllThreats(type) > 0
 			&& chessBoard.countAllThreats(piece) == 0) return false;
 
@@ -148,7 +152,7 @@ public class Search {
 			piece = PieceColor.WHITE;
 		else
 			piece = PieceColor.EMPTY;
-			
+
 		//如果我方威胁大于3，return true；
 		if (type == (piece) && (chessBoard.countAllThreats(type) >= 3)) {
 			bestMove = moveVector.get(0);
@@ -169,13 +173,13 @@ public class Search {
 			piece = PieceColor.WHITE;
 		else
 			piece = PieceColor.EMPTY;
-		
+
 		for (int i = 0; i < num; i++) {
 			chessBoard.makeMove(move.moveList.get(i).pos[0], move.moveList.get(i).pos[1], type);
 			chessBoard.makeMove(move.moveList.get(i).pos[2], move.moveList.get(i).pos[3], type);
 			moveVector.add(move.moveList.get(i));
 			boolean flag = TSS(piece, chessBoard, depth - 1);
-			moveVector.remove(moveVector.size() - 2);
+			moveVector.remove(moveVector.size() - 1);
 			chessBoard.unMakeMove(move.moveList.get(i).pos[2], move.moveList.get(i).pos[3], type);
 			chessBoard.unMakeMove(move.moveList.get(i).pos[0], move.moveList.get(i).pos[1], type);
 
@@ -188,6 +192,6 @@ public class Search {
 				if (!flag) return false;
 			}
 		}
-		return isFind;
+	return isFind;
 	}
 }

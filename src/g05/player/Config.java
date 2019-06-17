@@ -30,7 +30,7 @@ public class Config {
 		{ -3, -3 }
 	};
 	
-	public int [][] open = new int[][] {
+	public static int [][] open = new int[][] {
 		{ 1,0,1,1 },
 		{ 1,0,1,-1 },
 		{ -1,0,-1,1 },
