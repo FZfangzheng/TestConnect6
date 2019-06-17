@@ -98,6 +98,7 @@ public class Search {
         }
     }
     public Step mustStop(MyBoard board, PieceColor myChess,Board_Score BS){
+        //四五子必堵
         this.AS.clear();
         PieceColor opponent;
         if(myChess==WHITE){
@@ -108,14 +109,20 @@ public class Search {
         }
         Board_Roads[][] br = BS.getBlackorwhite();
         ArrayList<Road> ar = new ArrayList<>();
+        ArrayList<Road> ar1 = new ArrayList<>();
         if (myChess == BLACK) {
             ar.addAll(br[0][4].getAllRoad());
             ar.addAll(br[0][5].getAllRoad());
+            ar1.addAll(br[0][3].getAllRoad());
+            ar1.addAll(br[0][2].getAllRoad());
         } else {
             ar.addAll(br[4][0].getAllRoad());
             ar.addAll(br[5][0].getAllRoad());
+            ar1.addAll(br[3][0].getAllRoad());
+            ar1.addAll(br[2][0].getAllRoad());
         }
         ArrayList<Integer> ai = new ArrayList<>();
+        ArrayList<Integer> ai1 = new ArrayList<>();
         for(Road road :ar){
             int d = road.getJ() - 1;//方向坐标
             int i = road.getFp()/19;
@@ -133,7 +140,26 @@ public class Search {
             return AS.get(0);
         }
         else{
-            return new Step(new int[]{-1,-1},new int[]{-1,-1});
+            //三三必堵
+            for(Road road :ar1){
+                int d = road.getJ() - 1;//方向坐标
+                int i = road.getFp()/19;
+                int j = road.getFp()%19;
+                for (int k = 0 ; k < 6;k++){
+                    int y = i + dir[d][0] * k,x = j + dir[d][1] * k;
+                    if(y>=0&&y<19&&x>=0&&x<19 && board.get(y*19+x) == EMPTY){
+                        if(!ai1.contains(y*19+x))
+                            ai1.add(y*19+x);
+                    }
+                }
+            }
+            this.operator_stop(ar1,ai1,board,myChess);
+            if(AS.size()!=0){
+                return AS.get(0);
+            }
+            else {
+                return new Step(new int[]{-1, -1}, new int[]{-1, -1});
+            }
         }
     }
     private void attack_search(MyBoard board, PieceColor myChess,Board_Score BS,int now,int target){
