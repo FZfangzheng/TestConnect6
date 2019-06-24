@@ -1,4 +1,4 @@
-package FZ16020031016;
+package g05;
 
 import core.board.Board;
 import core.board.PieceColor;
@@ -31,16 +31,13 @@ public class Forecast {
         if (step.getFirstStep() < 0){
             Step stop_step = search.mustStop(this.board,this.myChess,this.BS);
             if(stop_step.getFirstStep()<0) {
-                //Step attack_step = search.attack_new(this.board,this.myChess,this.BS);
+                //Step attack_step = search.attack(this.board,this.myChess,this.BS,2);
                 //¹¥»÷Ê§°Ü
                 //if(attack_step.getFirstStep()<0) {
                     //½øÐÐ¦Á¦Â¼ôÖ¦ËÑË÷×îºÏÊÊ
                     alphabeta(0, -Long.MAX_VALUE, Long.MAX_VALUE, myChess, board);
-                    return Utiles.stepToInt(this.step);
                 //}
-                //else {
-                    //return Utiles.stepToInt(attack_step);
-                //}
+                return Utiles.stepToInt(this.step);
             }
             else{
                 return Utiles.stepToInt(stop_step);
